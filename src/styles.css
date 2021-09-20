@@ -1,0 +1,143 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~primeng/resources/primeng.min.css';
+@import '~primeicons/primeicons.css';
+:root {
+    --color-background: #E0E3E7;
+    /* dark mode background*/
+    /* --color-background: #1e1e1e; */
+    --color-background-secondary: #F0F0F7;
+    --color-primary-blue: #057386;
+    --color-primary-gray: #666666;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #404C51;
+    margin: 0;
+    background-color: var(--color-background);
+}
+
+label {
+    font-weight: bold;
+}
+
+button {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+button span,
+a {
+    font-weight: bold;
+}
+
+button:hover:enabled {
+    /* color: #0b532c !important; */
+    /* background: transparent !important; */
+    opacity: .9 !important;
+    /* border-radius: 10px; */
+    /* border: 5px solid; */
+    /* transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s; */
+}
+
+.button-link {
+    color: var(--color-primary-green) !important;
+    text-transform: lowercase;
+    /* font-weight: normal; */
+}
+
+.button-link:hover {
+    color: #0b532c !important;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s !important;
+}
+
+.container {
+    padding-left: 5.5rem;
+    padding-right: .5rem;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        margin: 0 auto;
+        width: 1250px;
+        padding: 0;
+        padding-left: 4rem !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        /* padding-left: .5rem !important;
+        padding-right: .5rem !important;
+        padding-bottom: 5.5rem !important; */
+        padding-left: .5rem;
+        /* padding-right: .5rem; */
+        padding-bottom: 5.5rem;
+    }
+}
+
+.page-title {
+    color: #404C51;
+    margin-bottom: 0.5rem;
+}
+
+.page-header {
+    border-bottom: 2px solid #057386;
+    margin-bottom: 1.5rem;
+}
+
+.page-header.with-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page-header.with-buttons.two .p-button+.p-button {
+    margin-right: 0;
+}
+
+.page-header.with-buttons.one .p-button {
+    margin-right: 0;
+}
+
+.titulo {
+    color: #111111;
+}
+
+.header-dialog {
+    font-size: 25px;
+    color: #057386;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #404C51;
+    width: 100%;
+}
+
+.btn-cancelar {
+    background-color: var(--color-primary-gray) !important;
+}
+
+.btn-salvar,
+.btn-verde {
+    background-color: var(--color-primary-blue) !important;
+}
+
+
+/* .btn-salvar:hover {
+    background-color: #84c7a3 !important;
+} */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #057386;
+    /* border: 1px solid #a0c7b1; */
+    border-radius: 10px;
+}

@@ -1,0 +1,68 @@
+<div class="container">
+
+    <div class="page-header with-buttons two">
+        <div>
+            <h1 class="page-title">Cartões</h1>
+        </div>
+    </div>
+
+    <p-dataView #dv [value]="cartoes" [paginator]="true" [rows]="8" layout="grid" emptyMessage="Nenhum cartão encontrado">
+        <ng-template pTemplate="header">
+            <div>
+                <form autocomplete="off">
+                    <div class="list-header">
+                        <div>
+                            <p-dropdown class="filtro" [options]="tiposCartao" name="tipoCartao" [(ngModel)]="tipoCartao" placeholder="Tipo do cartão" [showClear]="true"></p-dropdown>
+                            <input class="filtro" pInputText type="text" name="busca" [(ngModel)]="busca" placeholder="Buscar">
+                            <button class="btn" pButton icon="pi pi pi-search" pTooltip="Buscar" tooltipPosition="bottom" (click)="pesquisar()"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </ng-template>
+        <ng-template let-cartao pTemplate="gridItem">
+            <div class="p-col-12 p-md-3">
+                <div class="card">
+
+                    <a class="cartao-grid-item">
+
+                        <div class="cartao-nome">
+                            <p>{{cartao.nome}}</p>
+                        </div>
+
+                        <div>
+                            <p>Número: {{cartao.numeroCartao}}</p>
+                        </div>
+
+                        <div class="cartao-usuario">
+                            <p>Usuário: {{cartao.usuario.nome}}</p>
+                        </div>
+
+                        <div class="tipo-cartao-badge">
+                            <span [class]="'badge ' + cartao.tipoCartao.toLowerCase()">{{cartao.tipoCartao}}</span>
+                        </div>
+
+                        <div>
+                            <p-inputSwitch [(ngModel)]="cartao.status" (click)="mudarStatus(cartao)" class="status"></p-inputSwitch>
+                            <span href="javascript:;" [pTooltip]="cartao.status ? 'Desativar' : 'Ativar'"
+                                tooltipPosition="top" (click)="mudarStatus(cartao)" style="margin: 10px;">
+                                {{ cartao.status ? 'Ativo' : 'Inativo' }}
+                            </span>
+                        </div>
+                    </a>
+
+                    <div class="cartao-grid-item-bottom">
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text" (click)="confirmarExclusao(cartao)" pTooltip="Excluir" tooltipPosition="bottom"></button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>
+
+<p-confirmDialog #cd [style]="{width: '450px'}">
+    <ng-template pTemplate="footer">
+        <button class="btn-cancelar" type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+        <button class="btn-salvar" type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+    </ng-template>
+</p-confirmDialog>

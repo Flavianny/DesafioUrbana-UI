@@ -1,0 +1,114 @@
+.btn-salvar {
+    margin: 0;
+}
+
+.botao-salvar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.link-esqueci-senha {
+    margin: 0;
+    padding: 0 0 0.5rem 0;
+    text-decoration: underline;
+}
+
+.botao-esqueci-senha {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo {
+    width: 50%;
+}
+
+.logo-urbana{
+    filter: drop-shadow(3px 2px 2px #373837);
+}
+
+.logo-urbana {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:host ::ng-deep .tabLogin .p-tabview-nav {
+    background: none;
+}
+
+:host ::ng-deep .tabLogin .p-tabview-nav .p-highlight {
+    margin-right: 2px;
+    margin-left: 1px;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    width: 7rem;
+    font-weight: bold;
+}
+
+:host ::ng-deep .p-tabview-panels {
+    box-shadow: 0 0 0.5rem #666968;
+    border-radius: 0px 15px 15px 15px;
+}
+
+.p-tabview-title a {
+    color: #007bff !important;
+}
+
+#divider-login {
+    color: gray;
+    border: 0;
+}
+
+.versao-ub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.versao-ub p {
+    color: rgb(131, 124, 124);
+}
+
+.login-cadastro {
+    margin: 10px 20px;
+}
+
+.btn-salvar {
+    margin: 0 !important;
+}
+
+.p-dialog .p-dialog-footer button {
+    margin: 0 0.0rem 0 0;
+    width: auto;
+}
+
+.container {
+    padding: 0.5rem;
+}
+:host ::ng-deep .p-card {
+    box-shadow: 0 0 0.5rem #666968;
+    border-radius: 0px 15px 15px 15px;
+}
+
+@media (min-width: 870px) {
+    .container {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-rows: 450px 1fr;
+        grid-template-areas: "login-cadastro logoUrbana" "descricao descricao";
+        gap: 80px;
+    }
+    .logo-urbana {
+        margin-top: 15%;
+        grid-area: logoUrbana;
+    }
+    .logo {
+        width: 80%;
+    }
+    .login-cadastro {
+        margin-top: 20%;
+        grid-area: login-cadastro;
+    }
+}

@@ -1,0 +1,45 @@
+<div class="container ">
+
+    <div class="logo-urbana">
+        <img class="logo" src="http://www.urbana-pe.com.br/wp-content/themes/urbana/img/Urbana-PE.svg" alt="Urbana-PE">
+    </div>
+
+    <div class="login-cadastro">
+
+        <p-tabView class="tabLogin">
+            <p-tabPanel header="Login" class="header">
+                <form autocomplete="off" class="formLogin" #formLogin="ngForm">
+
+                    <div class="p-fluid">
+
+                        <div class="p-field">
+                            <label for="username">Usuário</label>
+                            <input type="username" id="username" name="username" [(ngModel)]="login.usuario" minlength="6" maxlength="100" pInputText required #username="ngModel" ngModel/>
+
+                            <app-mensagem-de-erro [controle]="username" erro="required" mensagem="Informe o usuário"></app-mensagem-de-erro>
+                            <app-mensagem-de-erro [controle]="username" erro="minlength" mensagem="Mínimo de {{username.errors?.minlength?.requiredLength}} caracteres"></app-mensagem-de-erro>
+                        </div>
+
+                        <div class="p-field">
+                            <label for="senha">Senha</label>
+                            <p-password [feedback]="false" toggleMask=true id="senha" name="senha" [(ngModel)]="login.senha" minlength="6" maxlength="100" required #senha="ngModel" ngModel></p-password>
+
+                            <app-mensagem-de-erro [controle]="senha" erro="required" mensagem="Informe a senha"></app-mensagem-de-erro>
+                            <app-mensagem-de-erro [controle]="senha" erro="minlength" mensagem="Mínimo de {{senha.errors?.minlength?.requiredLength}} caracteres"></app-mensagem-de-erro>
+                        </div>
+
+                    </div>
+
+                    <div class="botao-salvar">
+                        <button [disabled]="!formLogin.valid" class="btn-salvar" pButton type="submit" label="Entrar" (click)="logar(formLogin)"></button>
+                    </div>
+
+                </form>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </div>
+
+
+</div>

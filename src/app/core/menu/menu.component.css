@@ -1,0 +1,127 @@
+.navbar {
+    position: fixed;
+    background-color: #057386;
+    transition: width 500ms ease;
+    color: #FFFFFF;
+    z-index: 10;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item {
+    width: 100%;
+    cursor: pointer;
+}
+
+.nav-item:last-child {
+    margin-top: auto;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: 100ms;
+}
+
+.nav-link:hover {
+    background: #FFFFFF;
+    color: #404C51;
+}
+
+.link-text {
+    display: none;
+}
+
+.nav-link svg {
+    width: 1.8rem;
+    min-width: 1.8rem;
+    margin: 0 1.5rem;
+}
+
+.nav-link img {
+    width: 5rem;
+    min-width: 5rem;
+    margin-left: 0.0rem;
+}
+
+.logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.1ch;
+    width: 100%;
+    background: #057386;
+}
+
+
+/* tela pequena */
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+        bottom: 0;
+        width: 100vw;
+        height: 5rem;
+    }
+    .navbar-nav {
+        flex-direction: row;
+    }
+    .nav-link {
+        justify-content: center;
+    }
+    .logo {
+        display: none;
+    }
+    .navbar:hover {
+        overflow-x: scroll;
+    }
+}
+
+
+/* tela grande */
+
+@media only screen and (min-width: 600px) {
+    .navbar {
+        top: 0;
+        width: 5rem;
+        height: 100vh;
+    }
+    .navbar:hover {
+        overflow-y: scroll;
+        width: 15rem;
+    }
+    .navbar:hover .navbar-nav .logo img {
+        margin-left: 5rem;
+        transition: 0.5s ease-in-out;
+    }
+    .navbar:hover .link-text {
+        display: inline;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #057386;
+    /* border: 1px solid #a0c7b1; */
+    border-radius: 10px;
+}

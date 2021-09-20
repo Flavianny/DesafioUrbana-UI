@@ -1,0 +1,20 @@
+.btn-salvar {
+    background-color: #057386 !important;
+    margin: 0;
+}
+
+.botao-salvar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+:host ::ng-deep .p-card {
+    box-shadow: 0 0 0.5rem #666968;
+    border-radius: 0px 15px 15px 15px;
+}
+
+/* @media only screen and (min-width: 850px) {
+    .formUsuario {
+        width: 50%;
+    }
+} */

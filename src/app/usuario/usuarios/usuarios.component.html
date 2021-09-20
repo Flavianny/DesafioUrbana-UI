@@ -1,0 +1,60 @@
+<div class="container">
+
+    <div class="page-header with-buttons two">
+        <div>
+            <h1 class="page-title">Usuários</h1>
+        </div>
+    </div>
+
+    <p-dataView #dv [value]="usuarios" [paginator]="true" [rows]="8" layout="grid" emptyMessage="Nenhum usuário encontrado">
+        <ng-template pTemplate="header">
+            <div>
+                <form autocomplete="off">
+                    <div class="list-header">
+                        <div>
+                            <input class="filtro" pInputText type="text" name="busca" [(ngModel)]="busca" placeholder="Buscar">
+                            <button class="btn-verde" pButton icon="pi pi pi-search" pTooltip="Buscar" tooltipPosition="bottom" (click)="pesquisar()"></button>
+                        </div>
+
+                        <div>
+                            <a class="btn-verde" pButton icon="pi pi-user-plus" routerLink="/usuarios/novo" pTooltip="Novo usuário" tooltipPosition="bottom"></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </ng-template>
+        <ng-template let-usuario pTemplate="gridItem">
+            <div class="p-col-12 p-md-3">
+                <div class="card">
+
+                    <div class="usuario-grid-item">
+
+                        <div class="usuario-nome">
+                            <p>{{usuario.nome}}</p>
+                        </div>
+
+                        <div class="usuario-email">
+                            <i class="pi pi-envelope usuario-icon" pTooltip="E-mail"></i>
+
+                            <span>{{usuario.email}}</span>
+                        </div>
+
+                    </div>
+
+                    <div class="usuario-grid-item-bottom">
+                        <button pButton pRipple icon="pi pi-credit-card" class="p-button-rounded p-button-info p-button-text" [routerLink]="['/usuarios', usuario.codigo, 'cartoes']" pTooltip="Cartões" tooltipPosition="bottom"></button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-button-text" [routerLink]="['/usuarios', usuario.codigo]" pTooltip="Editar" tooltipPosition="bottom"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text" (click)="confirmarExclusao(usuario)" pTooltip="Excluir" tooltipPosition="bottom"></button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>
+
+<p-confirmDialog #cd [style]="{width: '450px'}">
+    <ng-template pTemplate="footer">
+        <button class="btn-cancelar" type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+        <button class="btn-salvar" type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+    </ng-template>
+</p-confirmDialog>

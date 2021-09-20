@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class="page-header with-buttons two">
+        <div>
+            <h1 class="page-title">Cartões de {{usuario.nome}}</h1>
+        </div>
+    </div>
+
+    <p-dataView #dv [value]="cartoes" [paginator]="true" [rows]="8" layout="grid" emptyMessage="Nenhum cartão encontrado">
+        <ng-template pTemplate="header">
+            <div>
+                <form autocomplete="off">
+                    <div class="list-header">
+                        <div>
+                            <a class="btn" pButton icon="pi pi-plus-circle" [routerLink]="['/usuarios', usuario.codigo,'cartoes', 'novo']" pTooltip="Novo cartão" tooltipPosition="bottom"></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </ng-template>
+        <ng-template let-cartao pTemplate="gridItem">
+            <div class="p-col-12 p-md-3">
+                <div class="card">
+
+                    <a [routerLink]="['/usuarios', usuario.codigo]" class="cartao-grid-item">
+
+                        <div class="cartao-nome">
+                            <p>{{cartao.nome}}</p>
+                        </div>
+
+                        <div>
+                            <p>{{cartao.numeroCartao}}</p>
+                        </div>
+
+                        <div class="tipo-cartao-badge">
+                            <span [class]="'badge ' + cartao.tipoCartao.toLowerCase()">{{cartao.tipoCartao}}</span>
+                        </div>
+
+                    </a>
+
+                    <div class="cartao-grid-item-bottom">
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text" (click)="confirmarExclusao(cartao)" pTooltip="Excluir" tooltipPosition="bottom"></button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>
