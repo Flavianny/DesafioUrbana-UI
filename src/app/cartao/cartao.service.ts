@@ -68,9 +68,19 @@ export class CartaoService {
   }
 
   mudarStatus(codigo: number, status: boolean): Promise<void> {
-    return this.http.put(`${this.baseUrl}/cartoes/${codigo}/status`, status)
-      .toPromise()
-      .then(() => null);
-  }
+    return this.http.put(`${this.baseUrl}/cartoes/${codigo}/${status}`, null)
+    .toPromise()
+    .then(response => {
+    })
+    .catch(response =>{
+
+      if (response.status === 400) {
+        return Promise.reject(response.error[0].mensagemUsuario);
+      }
+
+      return Promise.reject(response);
+
+    });
+}
 
 }

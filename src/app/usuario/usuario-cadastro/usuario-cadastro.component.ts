@@ -15,6 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UsuarioCadastroComponent implements OnInit {
 
   usuario = new Usuario();
+  codigoUsuario = this.route.snapshot.params['codigo'];
 
   constructor(
     private usuarioService: UsuarioService,
@@ -25,15 +26,13 @@ export class UsuarioCadastroComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const codigoUsuario = this.route.snapshot.params['codigo'];
-    if (codigoUsuario) {
-      this.buscarUsuario(codigoUsuario);
+    if (this.codigoUsuario) {
+      this.buscarUsuario(this.codigoUsuario);
     }
-
   }
 
   get editandoUsuario() {
-    return Boolean(this.usuario.codigo)
+    return Boolean(this.codigoUsuario)
   }
 
   salvar(form: FormControl) {
@@ -63,6 +62,7 @@ export class UsuarioCadastroComponent implements OnInit {
         this.usuario = usuario;
         this.usuario = new Usuario();
         this.messageService.add({severity:'success', summary:'Usuário atualizado!'});
+        this.router.navigate(['/usuarios'])
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

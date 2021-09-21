@@ -64,11 +64,12 @@ export class CartoesComponent implements OnInit {
   }
 
   mudarStatus(cartao: any): void {
-    const novoStatus = !cartao.ativo;
-    this.cartaoService.mudarStatus(cartao.codigo, novoStatus)
+    let status= true;
+    if(cartao.status == true)
+      status = false;
+    this.cartaoService.mudarStatus(cartao.codigo, status)
       .then(() => {
-        const acao = novoStatus ? 'ativado' : 'desativado';
-        cartao.status = novoStatus;
+        const acao = status ? 'desativado' : 'ativado';
         this.messageService.add({severity:'success', summary:`Cartão ${acao}!`});
       })
       .catch(erro => this.errorHandler.handle(erro));

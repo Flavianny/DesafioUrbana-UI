@@ -42,12 +42,9 @@
                             <span [class]="'badge ' + cartao.tipoCartao.toLowerCase()">{{cartao.tipoCartao}}</span>
                         </div>
 
-                        <div>
+                        <div class="status-badge">
                             <p-inputSwitch [(ngModel)]="cartao.status" (click)="mudarStatus(cartao)" class="status"></p-inputSwitch>
-                            <span href="javascript:;" [pTooltip]="cartao.status ? 'Desativar' : 'Ativar'"
-                                tooltipPosition="top" (click)="mudarStatus(cartao)" style="margin: 10px;">
-                                {{ cartao.status ? 'Ativo' : 'Inativo' }}
-                            </span>
+                            <h7>{{cartao.status? 'Ativo' : 'Inativo'}}</h7>
                         </div>
                     </a>
 

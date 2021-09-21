@@ -36,7 +36,8 @@ export class UsuarioService{
       });
   }
 
-  atualizarUsuario(usuario: any): Promise<any> {
+  atualizarUsuario(usuario: Usuario): Promise<any> {
+    console.log("teste")
     const params = {nome: usuario.nome, email: usuario.email}
     return this.http.put(`${this.baseUrl}/usuarios/${usuario.codigo}`, params)
       .toPromise()
@@ -68,7 +69,17 @@ export class UsuarioService{
   excluirConta(codigo: number): Promise<void> {
     return this.http.delete(`${this.baseUrl}/usuarios/${codigo}`)
       .toPromise()
-      .then(() => null);
+      .then(response => {null})
+      .catch(response =>{
+
+        if (response.status === 400) {
+          return Promise.reject(response.error[0].mensagemUsuario);
+        }
+
+        return Promise.reject(response);
+
+      });
+      
   }
 
   buscarUsuarios(filtro: UsuarioFiltro): Promise<any> {
