@@ -1,27 +1,8 @@
-# Usability Box - UI
+## Nome do Projeto
+#<h1 align="center">Urbana-PE</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
+## Descrição do Projeto
+<p align="center">Projeto de gerenciamento de usuários e seus respectivos cartões</p>
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Screenshot_2](https://user-images.githubusercontent.com/56006591/230785147-9869ed43-70f0-4f71-9dc6-91d601d799fd.png)
